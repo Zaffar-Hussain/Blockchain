@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script type=text/javascript>
+            $(function() {
+                
+              console.log("JQuery Running");
+            });
+        </script>
+        <style>
+            #div1{
+                width:60%;
+                margin:0 auto;
+            }
+            .img-fluid25 {
+    max-width: 25%;
+    height: auto;
+}
+.dashbg{
+background-image:url("/static/dashbg1.jpg");
+}
+
+        </style>
+    </head>
+
+    <body class="container dashbg">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark navbar-dark ">
+          <a class="navbar-brand" href="#"><img src="static/logo.png" /></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/Dashboard">Dashboard </a>
+              </li>
+              
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  SetUp
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% if globalRoleObject.canManufacture %}
+                  <a class="dropdown-item" href="/FoodManufactureListing">Manufacture Info</a>
+                    {% endif %}
+                    {% if globalRoleObject.canStorageUnit %}
+                  <a class="dropdown-item" href="/StorageUnitListing">Storage Unit </a>
+                    {% endif %}
+                  <div class="dropdown-divider"></div>
+                    {% if globalRoleObject.canCountry %}
+                  <a class="dropdown-item" href="/CountryListing">Country</a>
+                    {% endif %}
+                  
+                  
+                </div>
+              </li>
+                 {% if globalRoleObject.canMedicine %}
+              <li class="nav-item active">
+                <a class="nav-link" href="/FoodListing">Food </a>
+              </li>
+                 {% endif %}
+                 {% if globalRoleObject.canDeviceDataListing %}
+              <!--<li class="nav-item active">
+                <a class="nav-link" href="/DeviceDataListing">Device Data </a>
+              </li>-->
+                 {% endif %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Blockchain
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     {% if globalRoleObject.canBlockChainGeneration %}
+                  <a class="dropdown-item" href="/BlockChainGeneration">Blockchain Generation</a>
+                     {% endif %}
+                     {% if globalRoleObject.canBlockChainReport %}
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/BlockChainReport">Blockchain Report</a>
+                     {% endif %}
+                </div>
+              </li>
+                {% if globalRoleObject.canBlockChainDiscrepancy %}
+              <li class="nav-item active">
+                <a class="nav-link" href="/BlockChainDiscrepancy">BlockChain Discrepancy </a>
+              </li>
+                 {% endif %}
+              <!--<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Reports
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                 {% if globalRoleObject.canDeviceDataReport %}
+                  
+                     {% endif %}
+                  <div class="dropdown-divider"></div>
+                     {% if globalRoleObject.canFoodExpiryDateReport %}
+                  <a class="dropdown-item" href="/FoodExpiryDateReport">Food Expiry Report</a>
+                     {% endif %}
+                     {% if globalRoleObject.canMedicineReport %}
+                  <a class="dropdown-item" href="/FoodReport">Food Report</a>
+                     {% endif %}
+                  <div class="dropdown-divider"></div>
+                     {% if globalRoleObject.canStorageUnitReport %}
+                  <a class="dropdown-item" href="/StorageUnitReport">Storage Unit Report</a>
+                     {% endif %}
+                     {% if globalRoleObject.canManufactureReport %}
+                  <a class="dropdown-item" href="/ManufactureReport">Manufacture Report</a>
+                   {% endif %}
+                  
+                </div>
+              </li>-->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  System
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     {% if globalRoleObject.canRole %}
+                  <a class="dropdown-item" href="/RoleListing">Roles</a>
+                     {% endif %}
+                     {% if globalRoleObject.canUser %}
+                  <a class="dropdown-item" href="/UserListing">Users</a>
+                     {% endif %}
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/ChangePassword">Change Password</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/">Logout</a>
+              </li>
+            </ul>
+            
+          </div>
+        </nav>
+        <br/>
+        <div class="content container">
+            {%  block content %}
+            
+            {% endblock  %}
+            <div class="mt-5 pt-5"></div>
+        </div>
+    </body>
+
+</html>

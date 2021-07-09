@@ -1,0 +1,40 @@
+{% extends "Home.html" %}
+
+{% block content %}
+    <h2>Blockchain Discrepancy Report</h2>
+    <table class="table table-striped">
+    <thead>
+        <th>Food Name</th>
+        <th>Usage</th>
+        <th>Substances</th>
+        <th>Temperature</th>
+        <th>Humidity</th>
+        <th>Expiry Date</th>
+        <th>Price</th>
+        <th>Actual Hash</th>
+        <th>Current Hash</th>
+        <th>Is Same</th>
+    </thead>
+    <tbody>
+    {% for row in records %}
+        <tr class="{{ 'bg-danger' if row['hash'] != row['hash1'] }}">
+            <td>{{row["foodName"]}}</td>
+            <td>{{row["usage"]}}</td>
+            <td>{{row["substances"]}}</td>
+            <td>{{row["temperature"]}}</td>
+            <td>{{row["humidity"]}}</td>
+            <td>{{row["expiryDate"]}}</td>
+            <td>{{row["price"]}}</td>
+
+            <td style="word-break: break-all">{{row["hash"]}}</td>
+            <td style="word-break: break-all">{{row["hash1"]}}</td>
+            {% if row["hash"] == row["hash1"] %}
+                <td><span class="badge badge-success">Same</span></td>
+            {% else %}
+                <td><span class="badge badge-warning">Not Same</span></td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}

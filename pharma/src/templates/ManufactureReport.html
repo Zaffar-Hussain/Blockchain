@@ -1,0 +1,26 @@
+{% extends "Home.html" %}
+
+{% block content %}
+    <h2>Manufacture Report</h2>
+    <form id="frm" name="frm" method="post" action="/GenerateManufactureReport" >
+                
+       <div class="form-group row">
+        
+        <label for="Country" class="col-sm-3 col-form-label">Country</label>
+        <div class="col-sm-3">
+            <select class="form-control" name="countryID" id="countryID" >
+            <option  value="All">All</option>
+                {% for coun in countries %}
+                    <option value="{{ coun.countryID }}"> {{coun.countryName }}</option>
+                {% endfor %}
+            </select>
+         </div>
+      </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-outline-primary btn-sm ">Download</button>
+            <a href="/Dashboard" class="btn btn-outline-primary btn-sm ">Cancel</a>       
+        </div>
+        
+    </form>
+    
+{% endblock %}

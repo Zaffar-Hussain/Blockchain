@@ -1,0 +1,40 @@
+{% extends "Home.html" %}
+
+{% block content %}
+    <h2 style="color:black">Role Listing</h2>
+    
+<div class="text-center"><a href="/RoleOperation?operation=Create" class="btn btn-outline-info btn-sm ">Create</a></div>
+    <table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      
+      <th scope="col">Role Name</th>
+      <th scope="col">canCountry</th>
+      <th scope="col">canStorageUnit</th>
+      <th scope="col">canManufacture</th>
+      <th scope="col">Action</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in records %}
+        <tr>
+            <td>{{ row.roleName }}</td>
+            <td>{{ row.canCountry}}</td>
+            <td>{{ row.canStorageUnit}}</td>
+            <td>{{ row.canManufacture}}</td>
+           
+        <td>
+            <a href="/RoleOperation?operation=Edit&unqid={{row.roleID}}" class="btn btn-outline-warning btn-sm ">Edit</a>
+            <a href="/RoleOperation?operation=Delete&unqid={{row.roleID}}" class="btn btn-outline-warning btn-sm ">Delete</a>
+        </td>
+        </tr>
+    {% endfor %}
+   </tbody>
+</table>
+<div class="text-center"><a href="/RoleOperation?operation=Create" class="btn btn-outline-info btn-sm ">Create</a></div>
+{% endblock %}
+
+
+
+

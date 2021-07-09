@@ -1,0 +1,37 @@
+{% extends "Home.html" %}
+
+{% block content %}
+    <h2 style="color:black">Food Listing</h2>
+    
+<div class="text-center"><a href="/FoodOperation?operation=Create" class="btn btn-outline-info btn-sm ">Create</a></div>
+    <table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      
+      <th scope="col">Food Name</th>
+      <th scope="col">No.of Pieces </th>
+	   <th scope="col">Expiry Date</th>
+      <th scope="col">Action</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in records %}
+        <tr>
+            <td>{{ row.foodName}}</td>
+            <td>{{ row.usage}}</td>
+			<td>{{ row.expiryDate}}</td>
+        <td>
+            <a href="/FoodOperation?operation=Edit&unqid={{row.foodID }}" class="btn btn-outline-warning btn-sm ">Edit</a>
+            <a href="/FoodOperation?operation=Delete&unqid={{row.foodID }}" class="btn btn-outline-warning btn-sm ">Delete</a>
+        </td>
+        </tr>
+    {% endfor %}
+   </tbody>
+</table>
+<div class="text-center"><a href="/FoodOperation?operation=Create" class="btn btn-outline-info btn-sm ">Create</a></div>
+{% endblock %}
+
+
+
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pydev-testrun version="1.0"?><pydev-testsuite>
+<summary errors="1" failures="0" finished="true" name="Test Run: 0" tests="0" total_time="Finished in: 0.00 secs."/>
+<test location="D:\project-pharma\pharma\src\SupplyChainServer.py" status="error" test="SupplyChainServer" time="0">
+<stdout/>
+<stderr><![CDATA[Traceback (most recent call last):
+  File "C:\Program Files\Brainwy\LiClipse 6.1.0\plugins\org.python.pydev.core_7.5.0.202001101115\pysrc\_pydev_runfiles\pydev_runfiles.py", line 468, in __get_module_from_str
+    mod = __import__(modname)
+  File "D:\project-pharma\pharma\src\SupplyChainServer.py", line 8, in <module>
+    from Constants import connString
+  File "D:\project-pharma\pharma\src\Constants.py", line 1
+    serverName = "ZAFFAR,kmmk+
+                             ^
+SyntaxError: EOL while scanning string literal
+ERROR: Module: SupplyChainServer could not be imported (file: D:\project-pharma\pharma\src\SupplyChainServer.py).
+]]></stderr>
+</test>
+<launch mode="run">
+<launch_memento><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration local="true" path="pharma SupplyChainServer.py (1)"/>
+]]></launch_memento>
+</launch>
+</pydev-testsuite>

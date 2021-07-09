@@ -1,0 +1,143 @@
+{% extends "Home.html" %}
+
+{% block content %}
+    <h2>{{operation}} Manufacture Operation</h2>
+    <form method="post" action="/ProcessPharmaceuticalManufactureOperation" enctype="multipart/form-data">
+               
+      
+     <input type="hidden" name="operation" value="{{operation}}"/>
+     <input type="hidden" name="unqid" value="{{row.manufactureID}}"/>
+
+      <div class="form-group row">
+        <label for="Storage Unit Name" class="col-sm-3 col-form-label">Manufacture Name</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="manufactureName" id="manufactureName" placeholder="ManufactureName" value="{{row.manufactureName}}" required>
+        </div>
+        
+        <div class="col-sm-3">
+          
+        </div>
+      </div>
+       <div class="form-group row">
+        <label for="Address 1" class="col-sm-3 col-form-label">Address 1</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="address1" id="address1" placeholder="Address 1" value="{{row.address1}}" required>
+        </div>
+        <label for="Address 2" class="col-sm-3 col-form-label">Address 2</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="address2" id="address2" placeholder="Address 2" value="{{row.address2}}" required>
+        </div>
+      </div>
+       <div class="form-group row">
+        <label for="City" class="col-sm-3 col-form-label">City</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="city" id="city" placeholder="City" value="{{row.city}}" required>
+        </div>
+        <label for="State" class="col-sm-3 col-form-label">State</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="state" id="state" placeholder="State" value="{{row.state}}" required>
+        </div>
+      </div>
+       <div class="form-group row">
+        <label for="Pincode" class="col-sm-3 col-form-label">Pincode</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="pincode" id="pincode" placeholder="PinCode" value="{{row.pincode}}" required>
+        </div>
+        <label for="Country" class="col-sm-3 col-form-label">Country</label>
+        <div class="col-sm-3">
+            <select class="form-control" name="countryID" id="countryID" {{'disabled' if operation == 'Delete'}} required>
+            <option  value=""> None</option>
+                {% for coun in countries %}
+                    <option {{'selected' if row.countryID == coun.countryID}} value="{{ coun.countryID }}"> {{coun.countryName }}</option>
+                {% endfor %}
+            </select>
+        </div>
+      </div>
+       <div class="form-group row">
+        <label for="Phone 1" class="col-sm-3 col-form-label">Phone 1</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="phone1" id="phone1" placeholder="Phone1" value="{{row.phone1}}" required>
+        </div>
+        <label for="Phone 2" class="col-sm-3 col-form-label">Phone 2</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="phone2" id="phone2" placeholder="Phone2" value="{{row.phone2}}" required>
+        </div>
+      </div>
+      
+      
+       <div class="form-group row">
+        <label for="Mobile Number" class="col-sm-3 col-form-label">Mobile Number</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="mobileNumber" id="mobileNumber" placeholder="MobileNumber" value="{{row.mobileNumber}}" required>
+        </div>
+        
+        <label for="Phone 2" class="col-sm-3 col-form-label">Website</label>
+        <div class="col-sm-3">
+          <input type="url" class="form-control" {{'readonly' if operation == 'Delete'}} name="website" id="website" placeholder="Website" value="{{row.website}}" required>
+        </div>
+         
+      </div>
+       <div class="form-group row">
+        <label for="Email ID1" class="col-sm-3 col-form-label">Email ID1</label>
+        <div class="col-sm-3">
+          <input type="email" class="form-control" {{'readonly' if operation == 'Delete'}} name="emailID1" id="emailID1" placeholder="EmailID1" value="{{row.emailID1}}" required>
+        </div>
+        <label for="Email lD 2" class="col-sm-3 col-form-label">Email lD 2</label>
+        <div class="col-sm-3">
+          <input type="email" class="form-control" {{'readonly' if operation == 'Delete'}} name="emailID2" id="emailID2" placeholder="EmailID2" value="{{row.emailID2}}" required>
+        </div>
+      </div>
+       <div class="form-group row">
+        <label for="Contact Person Name" class="col-sm-3 col-form-label">Contact Person Name</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="contactPersonName" id="contactPersonName" placeholder="ContactPersonName" value="{{row.contactPersonName}}" required>
+        </div>
+        <label for="Contact Person Mobile" class="col-sm-3 col-form-label">Contact Person Mobile</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="contactPersonNumber" id="contactPersonNumber" placeholder="ContactPersonNumber" value="{{row.contactPersonNumber}}" required>
+        </div>
+      </div>
+       
+       <div class="form-group row">
+        <label for="Contact Person Email ID" class="col-sm-3 col-form-label">Contact Person Email ID</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="contactPersonEmailID" id="contactPersonEmailID" placeholder="ContactPersonEmailID" value="{{row.contactPersonEmailID}}" required>
+        </div>
+        </div>
+        <div class="form-group row">
+        <label for="GST Number" class="col-sm-3 col-form-label">GST Number</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="gstNumber" id="gstNumber" placeholder="GSTNumber" value="{{row.gstNumber}}" required>
+        </div>
+        <label for="TAN Number" class="col-sm-3 col-form-label">TAN Number</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="tanNumber" id="tanNumber" placeholder="TANNumber" value="{{row.tanNumber}}" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="Pharma License No" class="col-sm-3 col-form-label">Food License No</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="pharmaLicenseNumber" id="pharmaLicenseNumber" placeholder="FoodLicenseNumber" value="{{row.pharmaLicenseNumber}}" required>
+        </div>
+        </div>
+         <div class="form-group row">
+        <label for="Is Active" class="col-sm-3 col-form-label">Is Active</label>
+        <div class="col-sm-3">
+          <input type="checkbox" class="" {{'readonly' if operation == 'Delete'}} name="isActive" id="isActive" placeholder="IsActive" {{'checked' if row.isActive}} required>
+        </div>
+      </div>
+      
+          
+      
+     
+        
+        
+      </div>
+      
+       <div class="text-center">
+            <button type="submit" class="btn btn-outline-primary btn-sm ">{{operation}}</button>
+            <a href="/FoodManufactureListing" class="btn btn-outline-primary btn-sm ">Cancel</a>            
+      </div>
+    </form>
+    
+{% endblock %}

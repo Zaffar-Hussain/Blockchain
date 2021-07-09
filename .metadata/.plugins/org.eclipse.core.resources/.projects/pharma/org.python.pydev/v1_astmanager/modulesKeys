@@ -1,0 +1,10 @@
+MODULES_MANAGER_V2
+Constants|D:\project-pharma\pharma\src\Constants.py
+CountryModel|D:\project-pharma\pharma\src\CountryModel.py
+FoodManufactureModel|D:\project-pharma\pharma\src\FoodManufactureModel.py
+FoodModel|D:\project-pharma\pharma\src\FoodModel.py
+RoleModel|D:\project-pharma\pharma\src\RoleModel.py
+StorageUnitModel|D:\project-pharma\pharma\src\StorageUnitModel.py
+SupplyChainServer|D:\project-pharma\pharma\src\SupplyChainServer.py
+UserModel|D:\project-pharma\pharma\src\UserModel.py
+temp|D:\project-pharma\pharma\src\temp.py

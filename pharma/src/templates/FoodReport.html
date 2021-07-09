@@ -1,0 +1,35 @@
+{% extends "Home.html" %}
+
+{% block content %}
+        <h2>Food Report</h2>
+    <form id="frm" name="frm" method="post" action="/GenerateMedicineReport" >
+                
+       <div class="form-group row">
+        
+        <label for="storageUnitID" class="col-sm-3 col-form-label">Storage Unit</label>
+        <div class="col-sm-3">
+            <select class="form-control" name="storageUnitID" id="storageUnitID" >
+            <option  value="All">All</option>
+                {% for sunit in storageunits %}
+                    <option value="{{ sunit.storageUnitID }}"> {{sunit.storageUnitName }}</option>
+                {% endfor %}
+            </select>
+         </div>
+         <label for="manufactureID" class="col-sm-3 col-form-label">Manufacture</label>
+        <div class="col-sm-3">
+            <select class="form-control" name="manufactureID" id="manufactureID" >
+            <option  value="All">All</option>
+                {% for manu in manufactures %}
+                    <option value="{{ manu.manufactureID }}"> {{manu.manufactureName }}</option>
+                {% endfor %}
+            </select>
+         </div>
+      </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-outline-primary btn-sm ">Download</button>
+            <a href="/Dashboard" class="btn btn-outline-primary btn-sm ">Cancel</a>       
+        </div>
+        
+    </form>
+    
+{% endblock %}

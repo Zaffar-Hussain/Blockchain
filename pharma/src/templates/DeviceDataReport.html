@@ -1,0 +1,27 @@
+{% extends "Home.html" %}
+
+{% block content %}
+        <h2>Device Data Report</h2>
+    <form id="frm" name="frm" method="post" action="/GenerateDeviceDataReport" >
+                
+       <div class="form-group row">
+        
+        <label for="storageUnitID" class="col-sm-3 col-form-label">Food</label>
+        <div class="col-sm-3">
+            <select class="form-control" name="foodID" id="foodID" >
+            <option  value="All">All</option>
+                {% for med in medicines %}
+                    <option value="{{ med.foodID }}"> {{med.foodName }}</option>
+                {% endfor %}
+            </select>
+         </div>
+         
+      </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-outline-primary btn-sm ">Download</button>
+            <a href="/Dashboard" class="btn btn-outline-primary btn-sm ">Cancel</a>       
+        </div>
+        
+    </form>
+    
+{% endblock %}

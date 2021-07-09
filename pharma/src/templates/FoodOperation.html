@@ -1,0 +1,97 @@
+{% extends "Home.html" %}
+
+{% block content %}
+    <h2>{{operation}}  Food Operation</h2>
+    <form id="frm" name="frm" method="post" action="/ProcessMedicineOperation" enctype="multipart/form-data">
+               
+      
+     <input type="hidden" name="operation" value="{{operation}}"/>
+     <input type="hidden" name="unqid" value="{{row.foodID}}"/>
+     <input type="hidden" name="unqid" value="{{row.manufactureID}}"/>
+
+      <div class="form-group row">
+        <label for="foodName" class="col-sm-3 col-form-label">Food Name</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="foodName" id="foodName" placeholder="foodName" value="{{row.foodName}}" required>
+        </div>
+		<label for="usage" class="col-sm-3 col-form-label"> </label>
+        <div class="col-sm-3">
+          
+        </div>
+      </div>
+	      
+		  
+		  <div class="form-group row">
+		  <label for="usage" class="col-sm-3 col-form-label">No.of Pieces </label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="usage" id="usage" placeholder="" value="{{row.usage}}" required>
+        </div>
+        <label for="substances" class="col-sm-3 col-form-label">Ingredients Count</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="substances" id="substances" placeholder="" value="{{row.substances}}" required>
+        </div>
+		
+      </div>
+	      
+		  
+		  <div class="form-group row">
+		  <label for="temperature" class="col-sm-3 col-form-label">Temperature</label>
+        <div class="col-sm-3">
+          <input type="number" step="any" class="form-control" {{'readonly' if operation == 'Delete'}} name="temperature" id="temperature" placeholder="temperature" value="{{row.temperature}}" required>
+        </div>
+        <label for="humidity" class="col-sm-3 col-form-label">Humidity</label>
+        <div class="col-sm-3">
+          <input type="number" step="any" class="form-control" {{'readonly' if operation == 'Delete'}} name="humidity" id="humidity" placeholder="humidity" value="{{row.humidity}}" required>
+        </div>
+		
+      </div>
+	      
+		  
+		 <div class="form-group row">
+		 <label for="expiryDate" class="col-sm-3 col-form-label">Expiry Date </label>
+        <div class="col-sm-3">
+          <input type="date" class="form-control" {{'readonly' if operation == 'Delete'}} name="expiryDate" id="expiryDate" placeholder="expiryDate" value="{{row.expiryDate}}" required>
+        </div>
+        <label for="price" class="col-sm-3 col-form-label">Price Per Piece</label>
+        <div class="col-sm-3">
+          <input type="number" step="any" class="form-control" {{'readonly' if operation == 'Delete'}} name="price" id="price" placeholder="price" value="{{row.price}}" required>
+        </div>
+		
+      </div>
+      
+      <div class="form-group row">
+          <label for="storageUnitID" class="col-sm-3 col-form-label">Storage Unit</label>
+          
+        <div class="col-sm-3">
+          <select class="form-control" name="storageUnitID" id="storageUnitID" {{'disabled' if operation == 'Delete'}} required>
+            <option  value=""> None</option>
+                {% for sunit in storageUnits %}
+                    <option {{'selected' if row.storageUnitID == sunit.storageUnitID}} value="{{ sunit.storageUnitID }}"> {{sunit.storageUnitName }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <label for="manufactureID" class="col-sm-3 col-form-label">Manufacture</label>
+        <div class="col-sm-3">
+             <select class="form-control" name="manufactureID" id="manufactureID" {{'disabled' if operation == 'Delete'}} required>
+            <option  value=""> None</option>
+                {% for manu in manufactures %}
+                    <option {{'selected' if row.manufactureID == manu.manufactureID}} value="{{ manu.manufactureID }}"> {{manu.manufactureName }}</option>
+                {% endfor %}
+            </select>
+            
+          
+        </div>
+	      
+		
+    </div>
+		  
+	      
+		  
+		 
+       <div class="text-center">
+            <button type="submit" class="btn btn-outline-primary btn-sm ">{{operation}}</button>
+            <a href="/FoodListing" class="btn btn-outline-primary btn-sm ">Cancel</a>            
+      </div>
+    </form>
+    
+{% endblock %}

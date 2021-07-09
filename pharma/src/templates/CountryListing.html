@@ -1,0 +1,36 @@
+{% extends "Home.html" %}
+
+{% block content %}
+    <h2 style="color:black">Country Listing</h2>
+    
+<div class="text-center"><a href="/CountryOperation?operation=Create" class="btn btn-outline-info btn-sm ">Create</a></div>
+    <table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      
+      <th scope="col">Country Name</th>
+      <th scope="col">Is Active</th>
+      <th scope="col">Action</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in records %}
+        <tr>
+            <td>{{ row.countryName }}</td>
+            <td>{{ row.isActive  }}</td>
+            
+        <td>
+            <a href="/CountryOperation?operation=Edit&unqid={{row.countryID}}" class="btn btn-outline-warning btn-sm ">Edit</a>
+            <a href="/CountryOperation?operation=Delete&unqid={{row.countryID}}" class="btn btn-outline-warning btn-sm ">Delete</a>
+        </td>
+        </tr>
+    {% endfor %}
+   </tbody>
+</table>
+<div class="text-center"><a href="/CountryOperation?operation=Create" class="btn btn-outline-info btn-sm ">Create</a></div>
+{% endblock %}
+
+
+
+

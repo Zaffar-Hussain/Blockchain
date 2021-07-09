@@ -1,0 +1,40 @@
+{% extends "Home.html" %}
+
+{% block content %}
+    <h2 style="color:black">Manufacture Listing</h2>
+    
+<div class="text-center"><a href="/FoodManufactureOperation?operation=Create" class="btn btn-outline-info btn-sm ">Create</a></div>
+    <table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      
+      <th scope="col">Manufacture Name</th>
+      <th scope="col">Contact Person</th>
+      <th scope="col">Contact Person Mobile</th>
+      <th scope="col">Action</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in records %}
+        <tr>
+            <td>{{ row.manufactureName }}</td>
+            <td>{{ row.contactPersonName }}</td>
+                
+            <td>{{ row.contactPersonNumber }}</td>
+            
+            
+        <td>
+            <a href="/FoodManufactureOperation?operation=Edit&unqid={{row.manufactureID}}" class="btn btn-outline-warning btn-sm ">Edit</a>
+            <a href="/FoodManufactureOperation?operation=Delete&unqid={{row.manufactureID}}" class="btn btn-outline-warning btn-sm ">Delete</a>
+        </td>
+        </tr>
+    {% endfor %}
+   </tbody>
+</table>
+<div class="text-center"><a href="/FoodManufactureOperation?operation=Create" class="btn btn-outline-info btn-sm ">Create</a></div>
+{% endblock %}
+
+
+
+

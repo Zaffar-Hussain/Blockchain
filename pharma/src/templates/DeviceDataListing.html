@@ -1,0 +1,35 @@
+{% extends "Home.html" %}
+
+{% block content %}
+    <h2 style="color:black">Device Data Listing</h2>
+    
+    <table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      
+      <th scope="col">Created Date</th>
+      <th scope="col">Temparature </th>
+	   <th scope="col">Humidity</th>
+	   <th scope="col">Storage Unit Name</th>
+      <th scope="col">QR Code</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in records %}
+        <tr>
+            <td>{{ row[0]}}</td>
+            <td>{{ row[1]}}</td>
+			<td>{{ row[2]}}</td>
+			<td>{{ row[3]}}</td>
+            <td><img class="img-fluid25" src="static/QRCODE_DATA/{{row[4]}}"></td>
+        
+        </tr>
+    {% endfor %}
+   </tbody>
+</table>
+{% endblock %}
+
+
+
+

@@ -1,0 +1,32 @@
+{% extends "Home.html" %}
+
+{% block content %}
+    <h2>{{operation}}  Country Operation</h2>
+    <form id="frm" name="frm" method="post" action="/ProcessCountryOperation" enctype="multipart/form-data">
+               
+      
+     <input type="hidden" name="operation" value="{{operation}}"/>
+     <input type="hidden" name="unqid" value="{{row.countryID}}"/>
+
+      <div class="form-group row">
+        <label for="Country Name" class="col-sm-3 col-form-label">Country Name</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="countryName" id="countryName" placeholder="Country Name" value="{{row.countryName}}" required>
+        </div>
+      </div>
+	      
+      
+      <div class="form-group row">
+		<label for="Is Active" class="col-sm-3 col-form-label">Is Active</label>
+        <div class="col-sm-9">
+          <input type="checkbox"  {{'disabled' if operation == 'Delete'}} name="isActive" placeholder="Is Active" {{'checked' if row.isActive == 1}}/>
+        </div>
+      </div>
+      
+       <div class="text-center">
+            <button type="submit" class="btn btn-outline-primary btn-sm ">{{operation}}</button>
+            <a href="/CountryProviderListing" class="btn btn-outline-primary btn-sm ">Cancel</a>            
+      </div>
+    </form>
+    
+{% endblock %}

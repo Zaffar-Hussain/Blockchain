@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="SearchIndexPage">
+		<item key="HISTORY_SIZE" value="3"/>
+		<section name="HISTORY0">
+			<item key="textPattern" value="medicineName"/>
+			<item key="isCaseSensitive" value="true"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="scope" value="2"/>
+			<item key="scopeData" value=""/>
+			<item key="filenamePattern" value="*"/>
+		</section>
+		<section name="HISTORY1">
+			<item key="textPattern" value="medicineName"/>
+			<item key="isCaseSensitive" value="false"/>
+			<item key="isWholeWord" value="true"/>
+			<item key="scope" value="1"/>
+			<item key="scopeData" value="pharma"/>
+			<item key="filenamePattern" value="*"/>
+		</section>
+		<section name="HISTORY2">
+			<item key="textPattern" value="GenerateMedicineReport"/>
+			<item key="isCaseSensitive" value="false"/>
+			<item key="isWholeWord" value="true"/>
+			<item key="scope" value="1"/>
+			<item key="scopeData" value="pharma"/>
+			<item key="filenamePattern" value="*"/>
+		</section>
+	</section>
+</section>

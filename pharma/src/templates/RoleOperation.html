@@ -1,0 +1,115 @@
+{% extends "Home.html" %}
+
+{% block content %}
+    <h2>{{operation}}  Role</h2>
+    <form id="frm" name="frm" method="post" action="/ProcessRoleOperation" enctype="multipart/form-data">
+               
+      
+     <input type="hidden" name="operation" value="{{operation}}"/>
+     <input type="hidden" name="unqid" value="{{row.roleID}}"/>
+
+      <div class="form-group row">
+        <label for="roleName" class="col-sm-3 col-form-label">Role Name</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="roleName" id="roleName" placeholder="Role Name" value="{{row.roleName}}" required>
+        </div>
+      </div>
+	   <div class="form-group row">
+        <label for="canRole" class="col-sm-3 col-form-label">Can Role</label>
+        <div class="col-sm-9">
+          <input type="checkbox"  {{'disabled' if operation == 'Delete'}} name="canRole" placeholder="canRole" {{'checked' if row.canRole == 1}}/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="canUser" class="col-sm-3 col-form-label">Can User</label>
+        <div class="col-sm-9">
+          <input type="checkbox"  {{'disabled' if operation == 'Delete'}} name="canUser" placeholder="canUser" {{'checked' if row.canUser == 1}}/>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+		<label for="canCountry" class="col-sm-3 col-form-label">canCountry</label>
+        <div class="col-sm-9">
+          <input type="checkbox"  {{'disabled' if operation == 'Delete'}} name="canCountry" placeholder="Country" {{'checked' if row.canCountry == 1}}/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="canStorageUnit" class="col-sm-3 col-form-label">canStorageUnit</label>
+        <div class="col-sm-9">
+          <input type="checkbox"  {{'disabled' if operation == 'Delete'}} name="canStorageUnit" placeholder="StorageUnit" {{'checked' if row.canStorageUnit == 1}}/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="canManufacture" class="col-sm-3 col-form-label">canManufacture</label>
+        <div class="col-sm-9">
+          <input type="checkbox"  {{'disabled' if operation == 'Delete'}} name="canManufacture" placeholder="Manufacture" {{'checked' if row.canManufacture == 1}}/>
+        </div>
+      </div>
+       <div class="form-group row">
+        <label for="canMedicine" class="col-sm-3 col-form-label">canFood</label>
+        <div class="col-sm-9">
+          <input type="checkbox"  {{'disabled' if operation == 'Delete'}} name="canMedicine" placeholder="Medicine" {{'checked' if row.canMedicine == 1}}/>
+        </div>
+      </div>
+       <div class="form-group row">
+        <label for="canBlockChainGeneration" class="col-sm-3 col-form-label">canBlockChainGeneration</label>
+        <div class="col-sm-9">
+          <input type="checkbox"  {{'disabled' if operation == 'Delete'}} name="canBlockChainGeneration" placeholder="Medicine" {{'checked' if row.canBlockChainGeneration == 1}}/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="canBlockChainReport" class="col-sm-3 col-form-label">Can Blockchain Report</label>
+        <div class="col-sm-9">
+          <input type="checkbox"  {{'disabled' if operation == 'Delete'}} name="canBlockChainReport" placeholder="canBlockChainReport" {{'checked' if row.canBlockChainReport == 1}}/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="canDeviceDataReport" class="col-sm-3 col-form-label">Can Device Data Report</label>
+        <div class="col-sm-9">
+          <input type="checkbox"  {{'disabled' if operation == 'Delete'}} name="canDeviceDataReport" placeholder="canDeviceDataReport" {{'checked' if row.canDeviceDataReport == 1}}/>
+        </div>
+      </div>
+
+      <div class="form-group row">
+		<label for="canMedicineExpiryDateReport" class="col-sm-3 col-form-label">canFoodExpiryDateReport</label>
+        <div class="col-sm-9">
+          <input type="checkbox"  {{'disabled' if operation == 'Delete'}} name="canMedicineExpiryDateReport" placeholder="Country" {{'checked' if row.canMedicineExpiryDateReport == 1}}/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="canMedicineReport" class="col-sm-3 col-form-label">canFoodReport</label>
+        <div class="col-sm-9">
+          <input type="checkbox"  {{'disabled' if operation == 'Delete'}} name="canMedicineReport" placeholder="StorageUnit" {{'checked' if row.canMedicineReport == 1}}/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="canStorageUnitReport" class="col-sm-3 col-form-label">canStorageUnitReport</label>
+        <div class="col-sm-9">
+          <input type="checkbox"  {{'disabled' if operation == 'Delete'}} name="canStorageUnitReport" placeholder="Manufacture" {{'checked' if row.canStorageUnitReport == 1}}/>
+        </div>
+      </div>
+       <div class="form-group row">
+        <label for="canManufactureReport" class="col-sm-3 col-form-label">canManufactureReport</label>
+        <div class="col-sm-9">
+          <input type="checkbox"  {{'disabled' if operation == 'Delete'}} name="canManufactureReport" placeholder="Medicine" {{'checked' if row.canManufactureReport == 1}}/>
+        </div>
+      </div>
+       <div class="form-group row">
+        <label for="canDeviceDataListing" class="col-sm-3 col-form-label">canDeviceDataListing</label>
+        <div class="col-sm-9">
+          <input type="checkbox"  {{'disabled' if operation == 'Delete'}} name="canDeviceDataListing" placeholder="Medicine" {{'checked' if row.canDeviceDataListing == 1}}/>
+        </div>
+      </div>
+        <div class="form-group row">
+        <label for="canBlockChainDiscrepancy" class="col-sm-3 col-form-label">canBlockChainDiscrepancy</label>
+        <div class="col-sm-9">
+          <input type="checkbox"  {{'disabled' if operation == 'Delete'}} name="canBlockChainDiscrepancy"  {{'checked' if row.canBlockChainDiscrepancy == 1}}/>
+        </div>
+      </div>
+       <div class="text-center">
+            <button type="submit" class="btn btn-outline-primary btn-sm ">{{operation}}</button>
+            <a href="/RoleListing" class="btn btn-outline-primary btn-sm ">Cancel</a>            
+      </div>
+    </form>
+    
+{% endblock %}
